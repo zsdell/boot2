@@ -23,6 +23,7 @@ public class DellControll {
     @RequestMapping(value = "/user/login")
     public String getLogin(ArticleEntity user, HttpServletRequest request){
         Optional<ArticleEntity> articleEntity = jpaUser.findOne(new Specification<ArticleEntity>() {
+
             @Override
             public Predicate toPredicate(Root<ArticleEntity> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
                 criteriaQuery.where(criteriaBuilder.equal(root.get("userid"), user.getUserid()));
